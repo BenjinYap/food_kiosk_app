@@ -1,8 +1,6 @@
-import {AppBar, IconButton, Stack, Toolbar, Typography} from "@mui/material";
+import {AppBar, Badge, IconButton, Stack, Toolbar, Typography} from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
-import {Link as RouterLink} from "react-router-dom";
 
 function Header() {
   return (
@@ -25,13 +23,13 @@ function Header() {
             direction="row"
           >
             <IconButton>
-              <ShoppingCartIcon/>
+              <Badge
+                badgeContent="0"
+                color="primary"
+              >
+                <ShoppingCartIcon/>
+              </Badge>
             </IconButton>
-            <RouterLink to="/">
-              <IconButton>
-                <QuestionMarkIcon/>
-              </IconButton>
-            </RouterLink>
           </Stack>
         </Stack>
       </Toolbar>
