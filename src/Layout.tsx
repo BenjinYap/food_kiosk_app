@@ -5,8 +5,12 @@ import Sidebar from "./global/layout/Sidebar/Sidebar.tsx";
 import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useState} from "react";
+import {MockOrderApi} from "./global/api/MockOrderApi.tsx";
 
 const sidebarWidth = 240;
+
+let awd = new MockOrderApi();
+console.log(awd.getCategories());
 
 function Layout() {
   const theme = useTheme();

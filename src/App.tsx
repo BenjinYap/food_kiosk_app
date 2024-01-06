@@ -10,7 +10,6 @@ const theme = createTheme({
     mode: 'dark',
   },
 });
-console.log(theme);
 
 const router = createBrowserRouter(routes);
 
