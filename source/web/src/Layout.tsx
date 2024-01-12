@@ -1,16 +1,19 @@
 import {Stack} from "@mui/material";
-import Header from "./global/layout/Header/Header.tsx";
+import Header from "./global/layout/Header/Header";
 import {Outlet} from "react-router-dom";
-import Sidebar from "./global/layout/Sidebar/Sidebar.tsx";
+import Sidebar from "./global/layout/Sidebar/Sidebar";
 import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useState} from "react";
-import {MockOrderApi} from "./global/api/MockOrderApi.tsx";
+import {MockOrderApi} from "./global/api/MockOrderApi";
 
 const sidebarWidth = 240;
 
 let awd = new MockOrderApi();
 console.log(awd.getCategories());
+fetch('/api').then((resp) => {
+  console.log(resp.text().then((r) => console.log(r)));
+});
 
 function Layout() {
   const theme = useTheme();
