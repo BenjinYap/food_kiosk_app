@@ -1,0 +1,6 @@
+class MockData {
+
+}
+
+
+export {MockData}
