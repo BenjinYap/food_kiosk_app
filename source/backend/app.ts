@@ -1,11 +1,11 @@
-import express from 'express';
-import {order} from "./routes/order.mjs";
+import express, {Express} from 'express';
+import {order} from "./routes/order";
 
-const app = express()
+const app: Express = express()
 const port = 3000
 
 // app.get('/api', (req, res) => {
-//   res.send('Hello Worldaaaaaabbb!')
+//   res.send('Hello Worldaaaaaabbbbb!')
 // })
 
 app.use('/order', order);
