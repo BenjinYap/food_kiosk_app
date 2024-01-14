@@ -11,7 +11,7 @@ const sidebarWidth = 240;
 
 let awd = new MockOrderApi();
 console.log(awd.getCategories());
-fetch('/api').then((resp) => {
+fetch('/order').then((resp) => {
   console.log(resp.text().then((r) => console.log(r)));
 });
 

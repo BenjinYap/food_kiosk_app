@@ -1,6 +1,0 @@
-class MockData {
-
-}
-
-
-export {MockData}
