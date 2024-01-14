@@ -1,3 +1,3 @@
 export interface OrderApiInterface {
-  getCategories: () => string;
+  getCategories: () => Promise<any>;
 }

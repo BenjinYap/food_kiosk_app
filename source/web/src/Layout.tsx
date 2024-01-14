@@ -4,22 +4,25 @@ import {Outlet} from "react-router-dom";
 import Sidebar from "./global/layout/Sidebar/Sidebar";
 import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {MockOrderApi} from "./global/api/MockOrderApi";
+import {OrderApiInterface} from "./global/api/OrderApiInterface";
 
 const sidebarWidth = 240;
 
-let awd = new MockOrderApi();
-console.log(awd.getCategories());
-fetch('/order').then((resp) => {
-  console.log(resp.text().then((r) => console.log(r)));
-});
 
 function Layout() {
   const theme = useTheme();
   const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+
+  const [categories, setCategories] = useState(undefined);
+
+  useEffect(() => {
+    const orderApi: OrderApiInterface = new MockOrderApi();
+    orderApi.getCategories().then((resp) => setCategories(resp.data));
+  }, []);
 
   return (
     <>
@@ -36,6 +39,7 @@ function Layout() {
           mdDown={mdDown}
           mobileSidebarOpen={mobileSidebarOpen}
           onMobileSidebarToggle={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+          categories={categories}
         />
         <div style={{
           width: '100%',

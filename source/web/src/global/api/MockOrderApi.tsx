@@ -1,8 +1,9 @@
-import {OrderApiInterface} from "./OrderApiInterface.tsx";
-import {Api} from "./Api.tsx";
+import {OrderApiInterface} from "./OrderApiInterface";
+import {Api} from "./Api";
 
 export class MockOrderApi extends Api implements OrderApiInterface {
-  public getCategories(): string {
-    return '321';
+  public async getCategories(): Promise<any> {
+    const resp = await fetch('/api/order/categories');
+    return await resp.json();
   }
 }
